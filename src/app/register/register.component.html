@@ -1,0 +1,31 @@
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="txtEmail">Email:</label>
+        <input type="email" formControlName="email" id="txtEmail">
+        <div *ngIf="registrationForm.controls.email.errors && registrationForm.controls.email.touched">
+           <div *ngIf= "registrationForm.controls.email.errors.required">Email is required</div>
+           <div *ngIf= "registrationForm.controls.email.errors.pattern">Email is not valid</div>
+        </div>
+    </div>
+    <div></div>
+    <div>
+        <label for="txtpwd">Password:</label>
+        <input type="password" formControlName="password">
+        <div *ngIf="registrationForm.controls.password.errors && registrationForm.controls.password.touched">
+            <div *ngIf="registrationForm.controls.password.errors.required">Password is required</div>
+        </div>
+    </div>
+    <div>
+        <label for="txtRepeatpwd"></label>
+        <input type="password" formControlName="repeatPassword" id="txtRepeatpwd">
+        <div *ngIf="registrationForm.controls.repeatPassword.errors && registrationForm.controls.repeatPassword.touched">
+            <div *ngIf="registrationForm.controls.repeatPassword.errors.required">Password is required</div>
+            <div *ngIf="registrationForm.controls.repeatPassword.errors.mustMatch">Password must match</div>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>

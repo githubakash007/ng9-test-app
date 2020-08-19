@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm">
+
+    <div [ngClass]="{'has-error': isSubmitted && loginForm.controls.email.errors}">
+        <label for="txtEmail">Email:</label>
+        <input type="text" id="txtEmail" formControlName="email" />
+        
+        <div *ngIf="isSubmitted && loginForm.controls.email.errors">
+            <div *ngIf="loginForm.controls.email.errors.required">Email is required</div>
+        </div>
+    </div>
+    <div>
+        <label for="txtPwd">Password:</label>
+        <input type="text" id="txtPwd" formControlName="password" />
+
+        <div *ngIf="isSubmitted && loginForm.controls.password.errors">
+            <div *ngIf=" loginForm.controls.password.errors.required">Password is required</div>
+        </div>
+    </div>
+    <button type="submit" (click)="onSubmit($event)">Login</button>
+
+    <a href="" [routerLink]="['/register']">Register</a>
+</form>

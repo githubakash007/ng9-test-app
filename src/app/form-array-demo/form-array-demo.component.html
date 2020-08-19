@@ -1,0 +1,34 @@
+<form [formGroup]="demoForm">
+ 
+    <div>
+        <label for="txtName">Name:</label>
+        <input type="text" id="txtName" formControlName="name" />
+
+    </div>
+   
+    <div formArrayName=" ">
+        <div *ngFor="let role of roleForm.controls;let i=index" 
+        [formGroupName]="i">
+            <div>
+                <label for="txtrole">Role:</label>
+                <input type="text" id="txtrole" formControlName="myRole" />
+            </div>
+            <div>
+
+                <label for="chkAdmin">IsAdmin</label>
+                <input type="checkbox" formControlName="isAdmin">
+            </div>
+            <!-- <button type="button" (click)="removeRole($event,i)">Remove Role</button> -->
+        </div>
+
+    </div>
+    <!-- <button type="button" (click)="addRole()"> Add</button> -->
+    <button type="button" id="btnEventMaterial" (click)="addRole()">
+        <i class="fa fa-plus-circle"></i>
+    </button>
+    <span id="info" data-tooltip="USe this plus button to add event material Date control."> <i
+            class="fa fa-question-circle"></i></span>
+    
+
+
+</form>
